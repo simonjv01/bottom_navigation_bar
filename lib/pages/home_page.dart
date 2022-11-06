@@ -16,22 +16,49 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _screens = [
     const BlogsPage(), const FavoritesPage(), const AccountPage()
   ];
+
+  int _selectedIndex = 0;
   void _onPageChanged(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+  void _onItemTapped(int selectedIndex){
+    _pageController.jumpToPage(selectedIndex);
 
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
         controller: _pageController,
         onPageChanged: _onPageChanged,
-        physics: const NeverScrollableScrollPhysics(),
+        physics:  NeverScrollableScrollPhysics(),
         children: _screens,
       ),
-      bottomNavigationBar: BottomNavigationBar(items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: ('Home')),
-        BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ('Favorites')),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: ('Account')),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
+        unselectedItemColor: Theme.of(context).focusColor.withOpacity(1),
+        onTap: _onItemTapped,
+        items:    [
+        BottomNavigationBarItem(
+          
+            icon: Icon(Icons.home),
+            label: ('Blogs'),
+
+           ),
+         BottomNavigationBarItem(
+            icon: Icon(
+            Icons.favorite,
+            ),
+            label: ('Favorites')),
+         BottomNavigationBarItem(
+            icon: Icon(
+            Icons.person),
+            label: ('Account')),
+
       ],
       ),
 
