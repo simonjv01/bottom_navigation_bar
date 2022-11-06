@@ -1,3 +1,6 @@
+import 'package:bottom_navigation_bar/pages/navpages/bar_item_page.dart';
+import 'package:bottom_navigation_bar/pages/navpages/my_page.dart';
+import 'package:bottom_navigation_bar/pages/navpages/search_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -8,6 +11,11 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  List pages = [
+    const BarItemPage(),
+    const SearchPage(),
+    const MyPage()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
