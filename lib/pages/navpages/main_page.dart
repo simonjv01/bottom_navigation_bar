@@ -19,22 +19,25 @@ class _MainPageState extends State<MainPage> {
     const MyPage()
   ];
   int currentIndex = 0;
-  void _onTap(int index){
+  void _onTap(int index) {
     setState(() {
       currentIndex = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: pages[0],
+      body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        type:BottomNavigationBarType.fixed,
+        unselectedFontSize: 0,
+        selectedFontSize: 0,
+        type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
         onTap: _onTap,
         currentIndex: currentIndex,
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.black45.withOpacity(0.5),
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -42,19 +45,19 @@ class _MainPageState extends State<MainPage> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.apps),
-            label:("Home"),
-            ),
+            label: ("Home"),
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.bar_chart_sharp),
-            label:("Bar"),
+            label: ("Bar"),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),
-            label:("Search"),
+            label: ("Search"),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label:("My"),
+            label: ("My"),
           ),
         ],
       ),
