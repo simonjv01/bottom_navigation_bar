@@ -1,4 +1,5 @@
 import 'package:bottom_navigation_bar/pages/navpages/bar_item_page.dart';
+import 'package:bottom_navigation_bar/pages/navpages/home_page.dart';
 import 'package:bottom_navigation_bar/pages/navpages/my_page.dart';
 import 'package:bottom_navigation_bar/pages/navpages/search_page.dart';
 import 'package:flutter/material.dart';
@@ -12,14 +13,32 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   List pages = [
+    const HomePage(),
     const BarItemPage(),
     const SearchPage(),
     const MyPage()
   ];
+  int currentIndex = 0;
+  void _onTap(int index){
+    setState(() {
+      currentIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      body: pages[0],
       bottomNavigationBar: BottomNavigationBar(
+        type:BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        onTap: _onTap,
+        currentIndex: currentIndex,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black45.withOpacity(0.5),
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        elevation: 0,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.apps),
