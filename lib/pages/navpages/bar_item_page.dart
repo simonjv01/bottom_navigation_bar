@@ -20,7 +20,11 @@ class _BarItemPageState extends State<BarItemPage> {
       ),
       body: ListView(
         children: [
-          ToDoTile(),
+          ToDoTile(taskName: 'Make tutorial', taskCompleted: false,),
+          ToDoTile(taskName: 'Buy Milk', taskCompleted: false,),
+          ToDoTile(taskName: 'Send email', taskCompleted: false,),
+          ToDoTile(taskName: 'Make payment', taskCompleted: false,),
+
         ],
       ),
     );
