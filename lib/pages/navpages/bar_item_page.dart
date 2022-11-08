@@ -5,8 +5,20 @@ class BarItemPage extends StatelessWidget {
 
    @override
    Widget build(BuildContext context) {
-     return const Center(
-       child: Text("Bar Item Page"),
+     return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+       centerTitle: true,
+       title: const Text('Bar Items'),
+        ),
+        body: ListView(
+          children: [
+            Text('A'),
+            Text('B'),
+            Text('C'),
+          ],
+        ),
+      )
      );
    }
 }
