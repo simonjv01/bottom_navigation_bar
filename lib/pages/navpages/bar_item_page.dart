@@ -9,7 +9,26 @@ class BarItemPage extends StatefulWidget {
   State<BarItemPage> createState() => _BarItemPageState();
 }
 
+
+
+
 class _BarItemPageState extends State<BarItemPage> {
+
+  // list of todo tasks
+  List toDoList = [
+    ["Make Tutorial", false],
+    ["Buy Milk", false],
+    ["Send Email", false],
+    ["Make Payment", false],
+  ];
+
+  void checkBoxChanged(bool? value, int index) {
+    setState(() {
+      toDoList[index][1] = !toDoList[index][1];
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,15 +37,16 @@ class _BarItemPageState extends State<BarItemPage> {
         centerTitle: true,
         title: const Text('Bar Items'),
       ),
-      body: ListView(
-        children: [
-          ToDoTile(taskName: 'Make tutorial', taskCompleted: false,),
-          ToDoTile(taskName: 'Buy Milk', taskCompleted: false,),
-          ToDoTile(taskName: 'Send email', taskCompleted: false,),
-          ToDoTile(taskName: 'Make payment', taskCompleted: false,),
-
-        ],
-      ),
+      body: ListView.builder(
+      itemCount: toDoList.length,
+      itemBuilder: (context, index) {
+        return ToDoTile(
+          taskName: toDoList[index][0],
+          taskCompleted: toDoList[index][1],
+          onChanged: (value) => checkBoxChanged(value, index),
+        );
+      },
+    )
     );
   }
 }

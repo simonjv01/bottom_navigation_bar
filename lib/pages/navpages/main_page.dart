@@ -34,7 +34,6 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: BottomNavigationBar(
         unselectedFontSize: 0,
         selectedFontSize: 0,
-
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
         onTap: _onTap,

@@ -6,14 +6,17 @@ class ToDoTile extends StatelessWidget {
   final bool taskCompleted;
   Function(bool?)? onChanged;
 
-   ToDoTile({Key? key, required this.taskName, required this.taskCompleted}) : super(key: key);
+
+
+
+   ToDoTile({super.key, required this.taskName, required this.taskCompleted, required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(25.0),
+      padding: const EdgeInsets.only(left: 25.0, right: 25, top: 25),
        child: Container(
-          padding: EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(24.0),
           decoration:  BoxDecoration(
               color: Colors.yellow,
               borderRadius: BorderRadius.circular(12),
@@ -21,7 +24,7 @@ class ToDoTile extends StatelessWidget {
           child: Row(
             children:  [
               // checkbox
-              Checkbox(value: false, onChanged: onChanged),
+              Checkbox(value: taskCompleted, onChanged: onChanged),
               // task name
                Text(taskName),
             ],
