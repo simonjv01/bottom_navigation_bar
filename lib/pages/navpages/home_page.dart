@@ -21,6 +21,13 @@ class _HomePageState extends State<HomePage> {
         toDoList[index][1] = !toDoList[index][1];
       });
   }
+
+  // create a new task
+  void createNewTask() {
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +35,10 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('To Do List'),
         elevation: 0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: createNewTask,
+        child: const Icon(Icons.add),
       ),
       body: ListView.builder(
           itemCount: toDoList.length,
