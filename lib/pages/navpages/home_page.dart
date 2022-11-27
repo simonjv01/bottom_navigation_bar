@@ -24,6 +24,12 @@ class _HomePageState extends State<HomePage> {
 
   // create a new task
   void createNewTask() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const AlertDialog();
+        },
+    );
 
   }
 
