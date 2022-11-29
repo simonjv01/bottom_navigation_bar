@@ -1,3 +1,4 @@
+import 'package:bottom_navigation_bar/utils/dialog_box.dart';
 import 'package:bottom_navigation_bar/utils/todo_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
     showDialog(
         context: context,
         builder: (context) {
-          return const AlertDialog();
+          return const DialogBox();
         },
     );
 
@@ -39,6 +40,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.yellow[200],
       appBar: AppBar(
+        centerTitle: true,
         title: const Text('To Do List'),
         elevation: 0,
       ),
