@@ -3,13 +3,16 @@ import 'package:bottom_navigation_bar/utils/todo_tile.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+   HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+
+  // text controller
+  final _controller = TextEditingController();
 
   // list of todo tasks
   List toDoList = [
@@ -23,12 +26,21 @@ class _HomePageState extends State<HomePage> {
       });
   }
 
+  // save new task
+  void saveNewTask(){
+    
+  }
+
   // create a new task
   void createNewTask() {
     showDialog(
         context: context,
         builder: (context) {
-          return const DialogBox();
+          return DialogBox(
+            controller: _controller,
+            onSave: saveNewTask,
+            onCancel: () => Navigator.of(context).pop(),
+          );
         },
     );
 

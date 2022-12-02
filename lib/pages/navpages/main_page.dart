@@ -13,10 +13,10 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   List pages = [
-    const HomePage(),
-    const BarItemPage(),
-    const SearchPage(),
-    const MyPage()
+     HomePage(),
+     BarItemPage(),
+     SearchPage(),
+     MyPage()
   ];
   int currentIndex = 0;
   void _onTap(int index) {

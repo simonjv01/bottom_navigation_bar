@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 
 class BarItemPage extends StatefulWidget {
-  const BarItemPage({Key? key}) : super(key: key);
+  BarItemPage({Key? key}) : super(key: key);
 
   @override
   State<BarItemPage> createState() => _BarItemPageState();
