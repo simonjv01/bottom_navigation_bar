@@ -7,12 +7,17 @@ class ToDoTile extends StatelessWidget {
   final String taskName;
   final bool taskCompleted;
   Function(bool?)? onChanged;
-  Function(BuildContext)? deleteTask;
+  Function(BuildContext)? deleteFunction;
 
 
 
 
-   ToDoTile({super.key, required this.taskName, required this.taskCompleted, required this.onChanged, required Function(dynamic context) deleteFunction});
+   ToDoTile({
+     super.key,
+     required this.taskName,
+     required this.taskCompleted,
+     required this.onChanged,
+     required this.deleteFunction});
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +28,11 @@ class ToDoTile extends StatelessWidget {
            motion: StretchMotion(),
              children: [
                SlidableAction(
-                   onPressed: deleteTask,
+                   onPressed: deleteFunction,
                     icon: Icons.delete,
-                    backgroundColor: Colors.red.shade300,)
+                    backgroundColor: Colors.red.shade300,
+                    borderRadius: BorderRadius.circular(12),
+               ),
              ],
          ),
          child: Container(
