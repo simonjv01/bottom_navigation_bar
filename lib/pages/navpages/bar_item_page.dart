@@ -2,6 +2,7 @@ import 'package:bottom_navigation_bar/utils/todo_tile.dart';
 import 'package:flutter/material.dart';
 
 
+
 class BarItemPage extends StatefulWidget {
   BarItemPage({Key? key}) : super(key: key);
 
@@ -28,6 +29,13 @@ class _BarItemPageState extends State<BarItemPage> {
     });
   }
 
+  // delete task
+  void deleteTask(int index) {
+    setState(() {
+      toDoList.removeAt(index);
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +52,7 @@ class _BarItemPageState extends State<BarItemPage> {
           taskName: toDoList[index][0],
           taskCompleted: toDoList[index][1],
           onChanged: (value) => checkBoxChanged(value, index),
+          deleteFunction: (context) => deleteTask(index),
         );
       },
     )

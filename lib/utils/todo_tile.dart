@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 
+
 class ToDoTile extends StatelessWidget {
   final String taskName;
   final bool taskCompleted;
   Function(bool?)? onChanged;
-  Function(BuildContext)? deleteFunction;
+  Function(BuildContext)? deleteTask;
 
 
 
@@ -22,7 +23,7 @@ class ToDoTile extends StatelessWidget {
            motion: StretchMotion(),
              children: [
                SlidableAction(
-                   onPressed: deleteFunction,
+                   onPressed: deleteTask,
                     icon: Icons.delete,
                     backgroundColor: Colors.red.shade300,)
              ],
@@ -43,7 +44,8 @@ class ToDoTile extends StatelessWidget {
                 // task name
                  Text(
                    taskName,
-                   style:  TextStyle(decoration: taskCompleted ? TextDecoration.lineThrough : TextDecoration.none),
+                   style:  TextStyle(
+                       decoration: taskCompleted ? TextDecoration.lineThrough : TextDecoration.none),
 
                  ),
               ],
